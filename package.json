@@ -1,0 +1,23 @@
+{
+  "name": "programming-challenges",
+  "version": "1.0.0",
+  "description": "A collection of programming challenges implemented in JavaScript.",
+  "main": "src/challenge1.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "programming",
+    "challenges",
+    "javascript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.0.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "programming-challenges": "file:"
+  }
+}
