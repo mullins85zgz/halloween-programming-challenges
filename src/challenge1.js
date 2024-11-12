@@ -7,9 +7,9 @@ Dada una lista de enteros donde cada número representa el poder de una poción 
 
 
 function createMagicPotion(potions, target) {
-  var map = {}
+  let map = {}
   for (let i = 0; i < potions.length; i++) {
-    var diff = target - potions[i]
+    let diff = target - potions[i]
     if (map[diff] !== undefined) {
       return [map[diff], i]
     }
