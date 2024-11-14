@@ -18,27 +18,27 @@ a la esquina inferior derecha (posición [n-1][m-1]).
 */
 
 function findSafestPath(dream) {
-    const n = dream.length;
-    const m = dream[0].length;
-    const dp = new Array(n).fill(0).map(() => new Array(m).fill(0));
+    const rows = dream.length;
+    const columns = dream[0].length;
+    const dpTable = new Array(rows).fill(0).map(() => new Array(columns).fill(0));
 
-    dp[0][0] = dream[0][0];
+    dpTable[0][0] = dream[0][0];
 
-    for (let i = 1; i < n; i++) {
-        dp[i][0] = dp[i - 1][0] + dream[i][0];
+    for (let i = 1; i < rows; i++) {
+        dpTable[i][0] = dpTable[i - 1][0] + dream[i][0];
     }
 
-    for (let j = 1; j < m; j++) {
-        dp[0][j] = dp[0][j - 1] + dream[0][j];
+    for (let j = 1; j < columns; j++) {
+        dpTable[0][j] = dpTable[0][j - 1] + dream[0][j];
     }
 
-    for (let i = 1; i < n; i++) {
-        for (let j = 1; j < m; j++) {
-            dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + dream[i][j];
+    for (let i = 1; i < rows; i++) {
+        for (let j = 1; j < columns; j++) {
+            dpTable[i][j] = Math.min(dpTable[i - 1][j], dpTable[i][j - 1]) + dream[i][j];
         }
     }
 
-    return dp[n - 1][m - 1];
+    return dpTable[rows - 1][columns - 1];
   }
 
  module.exports = findSafestPath;
