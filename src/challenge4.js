@@ -31,12 +31,13 @@ function findTheKiller(whisper, suspects) {
     for (let i = 0; i < suspects.length; i++) {
         let suspect = suspects[i];
 
-        if ((whisper.length <= suspect.length && (whisper[whisper.length - 1] !== '$' || whisper.length - 1 === suspect.length)) 
-            || (whisper[whisper.length - 1] === '$' && whisper.length == suspect.length +1 ) ) {
+        let isLengthValid = whisper.length <= suspect.length && (whisper[whisper.length - 1] !== '$' || whisper.length - 1 === suspect.length);
+        let isExactMatch = whisper[whisper.length - 1] === '$' && whisper.length == suspect.length + 1;
+
+        if (isLengthValid || isExactMatch) {
             let match = true;
             for (let j = 0; j < whisper.length; j++) {
-            if(whisper[j] !== '$') break;
-            if (whisper[j] !== '~' && whisper[j].toLowerCase() !== suspect[j].toLowerCase() && whisper[j] !== '$') {
+            if (whisper[j] !== '~' && whisper[j] !== '$' && whisper[j].toLowerCase() !== suspect[j].toLowerCase() ) {
                 match = false;
                 break;
             }
