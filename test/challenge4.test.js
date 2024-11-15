@@ -1,4 +1,4 @@
-const findTheKiller = require('./challenge4');
+const findTheKiller = require('../src/challenge4');
 
 describe('findTheKiller', () => {
     test('should return the correct killer when there is only one match', () => {
